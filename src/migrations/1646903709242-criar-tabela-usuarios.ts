@@ -15,15 +15,16 @@ export class CriarTabelaUsuarios1646903709242 implements MigrationInterface {
           {
             name: 'nome',
             type: 'varchar',
-            isNullable: false,
           },
           {
             name: 'telefone',
             type: 'varchar',
+            isNullable: true,
           },
           {
             name: 'email',
             type: 'varchar',
+            isNullable: true,
           },
         ],
       }),
