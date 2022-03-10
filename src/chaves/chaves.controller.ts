@@ -1,0 +1,21 @@
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { ChavesService } from './chaves.service';
+import { CreateChaveDto } from './dto/create-chave.dto';
+
+@Controller('chaves')
+export class ChavesController {
+  constructor(private readonly chavesService: ChavesService) {}
+
+  @Post()
+  create(@Body() createChaveDto: CreateChaveDto) {
+    return this.chavesService.create(createChaveDto);
+  }
+}

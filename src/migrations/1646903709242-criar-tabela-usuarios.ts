@@ -9,6 +9,7 @@ export class CriarTabelaUsuarios1646903709242 implements MigrationInterface {
           {
             name: 'id',
             type: 'int',
+            isPrimary: true,
             isGenerated: true,
             generationStrategy: 'increment',
           },
