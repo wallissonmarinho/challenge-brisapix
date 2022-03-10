@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsuariosModule } from './usuarios/usuarios.module';
 import { ChavesModule } from './chaves/chaves.module';
+import { TransacoesModule } from './transacoes/transacoes.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ChavesModule } from './chaves/chaves.module';
       entities: [process.env.TYPEORM_ENTITIES],
     }),
     ChavesModule,
+    TransacoesModule,
   ],
 })
 export class AppModule {}
