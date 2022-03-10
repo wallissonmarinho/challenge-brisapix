@@ -9,3 +9,16 @@ services:
       - 3000:3000
     volumes:
       - .:/home/node/app
+    depends_on: 
+      - db
+
+  db:
+    build: .docker/postgres
+    container_name: brisapix-api-db
+    restart: always
+    tty: true
+    environment:
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=brisapix
+    volumes:
+      - .docker/dbdata:/var/lib/postgresql/data

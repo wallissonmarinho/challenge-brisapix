@@ -2,6 +2,8 @@ FROM node:14.15.4-alpine3.12
 
 RUN apk add --no-cache bash
 
+# RUN chmod +x ./.docker/entrypoint.sh
+
 RUN npm i -g @nestjs/cli@7.6.0
 
 ENV DOCKERIZE_VERSION v0.6.1
