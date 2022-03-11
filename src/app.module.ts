@@ -8,7 +8,6 @@ import { TransacoesModule } from './transacoes/transacoes.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    UsuariosModule,
     TypeOrmModule.forRoot({
       type: process.env.TYPEORM_CONNECTION as any,
       host: process.env.TYPEORM_HOST,
@@ -18,6 +17,7 @@ import { TransacoesModule } from './transacoes/transacoes.module';
       database: process.env.TYPEORM_DATABASE,
       entities: [process.env.TYPEORM_ENTITIES],
     }),
+    UsuariosModule,
     ChavesModule,
     TransacoesModule,
   ],
