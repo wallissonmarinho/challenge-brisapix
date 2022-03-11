@@ -11,8 +11,23 @@ export class ChavesService {
     private ChaveRepo: Repository<Chave>,
   ) {}
 
-  create(createChaveDto: CreateChaveDto) {
-    const chave = this.ChaveRepo.create(createChaveDto);
-    return this.ChaveRepo.save(chave);
+  async cadastrarChave(createChaveDto: CreateChaveDto) {
+    const chave = await this.ChaveRepo.findOne({
+      where: { chave: createChaveDto.chave },
+    });
+
+    if (chave) {
+      throw new Error('Chave já existe');
+    }
+
+    const chaves = await this.ChaveRepo.find({
+      where: { usuario_id: createChaveDto.usuario_id },
+    });
+
+    if (chaves.length == 3) {
+      throw new Error('Não é possivel adicionar mais de 3 chaves');
+    }
+
+    return this.ChaveRepo.save(this.ChaveRepo.create(createChaveDto));
   }
 }

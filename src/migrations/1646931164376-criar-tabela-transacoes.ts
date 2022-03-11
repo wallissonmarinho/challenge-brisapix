@@ -45,6 +45,26 @@ export class criarTabelaTransacoes1646931164376 implements MigrationInterface {
     await queryRunner.createForeignKey(
       'transacoes',
       new TableForeignKey({
+        columnNames: ['remetente_chave_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'chaves',
+        onDelete: 'CASCADE',
+      }),
+    );
+
+    await queryRunner.createForeignKey(
+      'transacoes',
+      new TableForeignKey({
+        columnNames: ['destinatario_chave_id'],
+        referencedColumnNames: ['id'],
+        referencedTableName: 'chaves',
+        onDelete: 'CASCADE',
+      }),
+    );
+
+    await queryRunner.createForeignKey(
+      'transacoes',
+      new TableForeignKey({
         columnNames: ['remetente_usuario_id'],
         referencedColumnNames: ['id'],
         referencedTableName: 'usuarios',

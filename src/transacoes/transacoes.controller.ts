@@ -8,11 +8,11 @@ export class TransacoesController {
 
   @Post()
   create(@Body() createTransacoeDto: CreateTransacoeDto) {
-    return this.transacoesService.create(createTransacoeDto);
+    return this.transacoesService.cadastrarTransacao(createTransacoeDto);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.transacoesService.findOne(+id);
+  @Get(':usuario_id')
+  findAll(@Param('usuario_id') usuario_id: string) {
+    return this.transacoesService.listarTransacoesPorUsuario(+usuario_id);
   }
 }

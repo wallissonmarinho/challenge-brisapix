@@ -11,7 +11,7 @@ export class UsuariosService {
     private UsuarioRepo: Repository<Usuario>,
   ) {}
 
-  create(createUsuarioDto: CreateUsuarioDto) {
+  cadastrarUsuario(createUsuarioDto: CreateUsuarioDto) {
     const usuario = this.UsuarioRepo.create(createUsuarioDto);
     return this.UsuarioRepo.save(usuario);
   }
