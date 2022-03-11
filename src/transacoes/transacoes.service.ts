@@ -31,8 +31,10 @@ export class TransacoesService {
       throw new Error('Chave do destinatario não encontrada');
     }
 
+    console.log('chaveRemetente.usuario_id: ', createTransacoeDto);
+
     const transacao = this.TransacaoRepo.create({
-      ...CreateTransacoeDto,
+      ...createTransacoeDto,
       remetente_chave_id: chaveRemetente.id,
       destinatario_chave_id: chaveDestinatario.id,
       remetente_usuario_id: chaveRemetente.usuario_id,
